@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const crypto = require('crypto');
+import { Sequelize } from "sequelize";
 
 const userSchema = new mongoose.Schema({
     firstName : {
@@ -22,6 +23,14 @@ const userSchema = new mongoose.Schema({
         default: "" ,
         type: String,
         required:true
+    },
+    about: {
+        type: String,
+        maxlength: 500 // You can adjust the maximum length as needed
+    },
+    image: {
+        type: Sequelize.ARRAY(Sequelize.STRING),
+        defaultValue: ["no picture for this product"],
     },
     verification: {
         default: false,
