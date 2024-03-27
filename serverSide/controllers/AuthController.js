@@ -113,7 +113,7 @@ const VerifyToken = asyncHandler((req, res) => {
             User.findOne({ _id }, (error, user) => {
                 if (user) {
                     let newData = user
-                    newData.hashedPassword = undefined
+                    newData.password = undefined
                     return res.status(200).json(newData)
                 }
                 else {
